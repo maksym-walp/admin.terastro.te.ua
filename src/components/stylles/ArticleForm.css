@@ -1,0 +1,61 @@
+.article-form {
+  max-width: 75vw;
+  margin: 0 auto;
+  padding: 20px;
+  border: 5px solid #000000;
+  border-radius: 10px;
+}
+
+.article-title{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.article-checkbox {
+  margin: 10px 0;
+}
+
+.article-content {
+  height: 50vh;
+  margin-bottom: 2vw; /* Значення за замовчуванням */
+
+  /* Медіазапит для вузьких екранів */
+  @media screen and (max-width: 469px) {
+    margin-bottom: 160px; /* Величина відступу для екранів шириною менше 269px */
+  }
+
+  @media screen and (min-width: 470px) and (max-width: 552px) {
+    margin-bottom: 135px; /* Величина відступу для екранів шириною від 601px до 552px */
+  }
+
+  @media screen and (min-width: 553px) and (max-width: 733px) {
+    margin-bottom: 110px; /* Величина відступу для екранів шириною від 553px до 733px */
+  }
+
+  @media screen and (min-width: 734px) and (max-width: 1413px) {
+    margin-bottom: 85px; /* Величина відступу для екранів шириною від 734px до 1413px */
+  }
+
+
+  @media screen and (min-width: 1414px) {
+    margin-bottom: 60px; /* Величина відступу для екранів шириною більше 1413px */
+  }
+}
+
+.article-form button {
+
+  width: 50%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.article-form button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,33 @@
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .article-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .article-card h3 {
+    margin-top: 0;
+  }
+  
+  .article-card p {
+    margin: 10px 0;
+  }
+  
+  .article-card a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .article-card a:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ArticleList from './components/ArticleList';
+import ArticleForm from './components/ArticleForm';
+import ArticleGrid from './components/ArticleGrid';
+import ArticlePage from './components/ArticlePage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Відображення ArticleForm та ArticleGrid на головній сторінці */}
+          <Route path="/" element={<>
+            <ArticleForm />
+            <ArticleGrid />
+          </>} />
+          {/* Додаткові маршрути, якщо вони потрібні */}
+          <Route path="/list" element={<ArticleList />} />
+          {/* <Route path="/article/:id" element={<ArticlePage />} /> */}
+          <Route path="/article" element={<ArticlePage />} />
+
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
