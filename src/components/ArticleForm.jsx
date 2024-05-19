@@ -1,9 +1,12 @@
-//ArticleForm.jsx
+//file ArticleForm.jsx
+
+//connecting dependencies
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './stylles/ArticleForm.css';
 
+//form and categories
 const ArticleForm = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -14,7 +17,6 @@ const ArticleForm = () => {
     'Про нас': false,
     'Блог': false
   });
-
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
     setCategories(prevCategories => ({
@@ -23,6 +25,7 @@ const ArticleForm = () => {
     }));
   };
 
+  //post /save-article
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -67,6 +70,7 @@ const ArticleForm = () => {
           </label>
         ))}
       </div>
+      <a href="https://design.te.ua/tools/rozkladka/">Змінити розкладку клавіатури</a>
       <ReactQuill
         className='article-content'
         value={content}
