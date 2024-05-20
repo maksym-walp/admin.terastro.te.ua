@@ -4,6 +4,7 @@
   padding: 20px;
   border: 5px solid #000000;
   border-radius: 10px;
+  text-align: center;
 }
 
 .article-title{
@@ -15,7 +16,7 @@
 }
 
 .article-checkbox {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .article-content {

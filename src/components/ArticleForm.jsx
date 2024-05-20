@@ -70,7 +70,7 @@ const ArticleForm = () => {
           </label>
         ))}
       </div>
-      <a href="https://design.te.ua/tools/rozkladka/">Змінити розкладку клавіатури</a>
+      <a href="https://design.te.ua/tools/rozkladka/" target="_blank" rel="noopener noreferrer">Змінити розкладку клавіатури</a>
       <ReactQuill
         className='article-content'
         value={content}
@@ -79,10 +79,10 @@ const ArticleForm = () => {
           toolbar: [
             [{'size': ['small', false, 'large', 'huge']}], //вибір розміру
             ['bold', 'italic', 'underline', 'strike'], //жирний-курсив-підкреслений-перекреслений
-            [{ 'color': [] }, { 'background': [] }], //колір тексту та колір виділення
+            [{'color': []}, {'background': []}], //колір тексту та колір виділення
             [{'align': []}], //центрування тексту
             [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}], //список, відступ
-            [{ 'script': 'sub'}, { 'script': 'super' }], //індекси верхні-нижній
+            [{'script': 'sub'}, {'script': 'super'}], //індекси верхні-нижній
             ['blockquote', 'code-block'], //цитата-код
             ['link', 'image', 'video', 'formula'], //посилання-картинка-відео-формула
             ['clean'] //очитити форматування

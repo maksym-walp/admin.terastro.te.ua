@@ -1,11 +1,15 @@
+//file ArticleList.jsx
+
+//connecting dependencies
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './stylles/ArticleList.css';
 
+//articles temp storage init
 const ArticleList = () => {
   const [articles, setArticles] = useState([]);
-  const navigate = useNavigate();
 
+  //get all articles from server
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -23,10 +27,6 @@ const ArticleList = () => {
 
     fetchArticles();
   }, []);
-
-  const handleView = (id) => {
-    navigate(`/article/${id}`);
-  };
 
   return (
     <div>
@@ -56,7 +56,7 @@ const ArticleList = () => {
               </td>
               <td>{new Date(article.createdAt).toLocaleString()}</td>
               <td>
-                <button onClick={() => handleView(article.id)}>View</button>
+                <Link className='view-button' to={`/article?id=${article.id}`}>View</Link>
               </td>
             </tr>
           ))}

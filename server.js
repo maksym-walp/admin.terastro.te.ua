@@ -56,3 +56,74 @@ app.post('/save-article', async (req, res) => {
         res.status(500).send('Failed to save article');
     }  
 });
+
+//geting all articles list via get
+app.get('/get-articles', async (req, res) => {
+    try {
+        //array with all articles data initialization
+        const articles = [];
+
+        //read all files in the articles directory
+        const files = await fs.readdir(ARTICLES_DIR);
+
+        //read content of each article file
+        for (const file of files) {
+            const filePath = path.join(ARTICLES_DIR, file);
+            const data = await fs.readFile(filePath);
+            const article = JSON.parse(data);
+
+            //adding content to articles array
+            const { id, title, author, createdAt, categories } = article;
+            articles.push({ id, title, author, createdAt, categories });
+        }
+
+        //sending array to client
+        res.status(200).json({ articles });
+
+    } catch (error) {
+        //error handling
+        console.error('Error getting articles:', error);
+        res.status(500).send('Failed to get articles');
+    }
+});
+
+app.get('/article', async (req, res) => {
+  const id = req.query.id;
+
+  try {
+    // Read the article file with the corresponding ID
+    const files = await fs.readdir(ARTICLES_DIR);
+    const articleFile = files.find(file => file.startsWith(`${id}-`));
+
+    if (!articleFile) {
+      return res.status(404).send('Article not found');
+    }
+
+    const filePath = path.join(ARTICLES_DIR, articleFile);
+    const data = await fs.readFile(filePath);
+    const article = JSON.parse(data);
+
+    // Generate HTML content for the article
+    const htmlContent = `
+      <html>
+        <head>
+          <title>${article.title}</title>
+        </head>
+        <body>
+          <h1>${article.title}</h1>
+          <p><strong>Author:</strong> ${article.author}</p>
+          <p><strong>Content:</strong> ${article.content}</p>
+          <p><strong>Categories:</strong> ${Object.keys(article.categories).filter(category => article.categories[category]).join(', ')}</p>
+          <p><strong>Created At:</strong> ${article.createdAt}</p>
+        </body>
+      </html>
+    `;
+
+    // Send the HTML content
+    res.status(200).send(htmlContent);
+  } catch (error) {
+    console.error('Error getting article:', error);
+    res.status(500).send('Failed to get article');
+  }
+});
+
