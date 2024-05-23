@@ -1,3 +1,5 @@
+//file App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ArticleList from './components/ArticleList';
@@ -14,7 +16,7 @@ function App() {
             <ArticleForm />
             <ArticleList />
           </>} />
-          <Route path="/articlePage" element={<ArticlePage />} />
+          <Route path="/article/:id" element={<ArticlePage />} />
         </Routes>
       </div>
     </Router>

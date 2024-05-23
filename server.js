@@ -18,12 +18,10 @@ app.use(express.json({ limit: '50mb' })); // збільште значення �
 app.use(express.urlencoded({ limit: '50mb', extended: true })); // для обробки форм з великими даними
 app.use(express.static('build'));
 
-
 //starting server
 WebServer.listen(PORT, HOST, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
 
 //saving articles via post
 app.post('/save-article', async (req, res) => {
@@ -87,8 +85,9 @@ app.get('/get-articles', async (req, res) => {
     }
 });
 
-app.get('/article', async (req, res) => {
-  const id = req.query.id;
+// Update the article route to use path parameter instead of query parameter
+app.get('/article/:id', async (req, res) => {
+  const id = req.params.id;
 
   try {
     // Read the article file with the corresponding ID
@@ -126,4 +125,3 @@ app.get('/article', async (req, res) => {
     res.status(500).send('Failed to get article');
   }
 });
-

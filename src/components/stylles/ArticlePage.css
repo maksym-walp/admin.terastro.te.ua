@@ -1,0 +1,35 @@
+.article-page {
+    margin-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.article {
+    width: 80%;
+    max-width: 800px;
+    font-size: 2.6vh;
+    line-height: 4.8vh;
+    padding: 0 5vh;
+}
+
+.article p {
+    margin-top: 5vh;
+    font-size: 2vh;
+    line-height: 3.7vh;
+    text-align: start;
+    font-style: italic;
+}
+
+@media screen and (max-width: 700px) {
+    .article {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .article {
+        width: 95%;
+    }
+}
