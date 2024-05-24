@@ -99,23 +99,102 @@ app.get('/article/:id', async (req, res) => {
                     <title>${article.title}</title>
                 </head>
                 <body>
+                    <header class="header">
+                        <div class="container">
+                            <div class="header_body">
+                                <div class="header_burger">
+                                    <span></span>
+                                </div>
+                                <nav class="header_menu">
+                                    <ul class="header_list">
+                                        <li class = "list_item">
+                                            <a href="./public/index.html" class="header_link">Головна</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/ter_astro_page.html" class="header_link">Терастро</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/nebozvid_page.html" class="header_link">Небозвід</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/lsao_page.html?category=LSAO" class="header_link">Lsao</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a class="dropdown-toggle header_link" data-bs-toggle="dropdown" href="./public/catalog.html" role="button" aria-expanded="false" >Статті</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item drop_little header_link" href="catalog.html?category=Про учасників">Про учасників</a></li>
+                                                <li><a class="dropdown-item drop_little header_link" href="catalog.html?category=Події">Події</a></li>
+                                                <li><a class="dropdown-item drop_little header_link" href="catalog.html?category=ЗМІ про нас">ЗМІ про нас</a></li>
+                                                <li><a class="dropdown-item drop_little header_link" href="catalog.html?category=Блог">Блог</a>
+                                            </ul>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a class="dropdown-toggle header_link" data-bs-toggle="dropdown" href="./public/astrophoto.html" role="button" aria-expanded="false" >Галерея</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item drop_little header_link" href="./public/astrophoto.html">Астрофото</a></li>
+                                                <li><a class="dropdown-item drop_little header_link" href="./public/astrovideo.html">Астровідео</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/white_swan_page.html" class="header_link">White swan</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/tsikavi_pos_page.html" class="header_link">Цікаві посилання</a>
+                                        </li>
+                                        <li class = "list_item">
+                                            <a href="./public/contacts_page.html" class="header_link">Контакти</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="focus_box">
+                                <p class="focus_word">
+                                    Клуб любителів 
+                                    <br>
+                                    астрономії “ТерАстро”
+                                </p>
+                            </div>
+                        </div>
+                    </header>
+
                     <h1>${article.title}</h1>
                     <p><strong>Author:</strong> ${article.author}</p>
                     <p><strong>Content:</strong> ${article.content}</p>
                     <p><strong>Categories:</strong> ${Object.keys(article.categories).filter(category => article.categories[category]).join(', ')}</p>
                     <p><strong>Created At:</strong> ${formattedDate}</p>
-                    <button onclick="deleteArticle(${article.id})">Delete</button>
-                    <script>
-                      async function deleteArticle(id) {
-                        const response = await fetch('/delete-article/' + id, { method: 'DELETE' });
-                        if (response.ok) {
-                          alert('Article deleted successfully!');
-                          window.location.href = '/';
-                        } else {
-                          alert('Failed to delete article');
-                        }
-                      }
-                    </script>
+
+                    <footer class="footer">
+                        <div class="container">
+                            <div class="footer_body">
+                                <div class="footer_text">
+                                    <h4>Про нас</h4>
+                                    <div class="footer_texr">
+                                        <p>
+                                            Клуб любителів астрономії “ТерАстро”.
+                                            Астрономічне товариство Тернопільського району “Небозвід”.
+                                        </p>
+                                    </div>    
+                                </div>
+                                <div class="logo">
+                                    <img src="./public/img/logo/logo1.jpg" alt="Логотип">
+                                </div>
+                                <div class="footer_social_network">
+                                    <a href="https://facebook.com/groups/astroTernopil/" target="_blank">
+                                        <img src="./public/img/for footer/facebook.png" alt="Посилання на фейсбук">
+                                    </a>
+                                    <a href="https://instagram.com/astroternopil/" target="_blank">
+                                        <img src="./public/img/for footer/instagram.png" alt="Посилання на інстаграм">
+                                    </a>
+                                    <a href="https://nebozvid.blogspot.com/" target="_blank">
+                                        <img src="./public/img/for footer/blog-text.png" alt="Посилання на блогспот">
+                                    </a>
+                                    <a href="mailto:terastro2017@gmail.com">
+                                        <img src="./public/img/for footer/envelope.png" alt="Напишіть нам!">
+                                    </a>
+                                </div>
+                            </div>  
+                        </div>
+                    </footer>
                 </body>
             </html>
         `;
