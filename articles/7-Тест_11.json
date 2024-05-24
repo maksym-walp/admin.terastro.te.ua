@@ -1,0 +1,14 @@
+{
+  "id": 7,
+  "title": "Тест 11",
+  "content": "<p>Чомусь не працює пвідомлення про успішне збереження статті</p>",
+  "author": "default author",
+  "createdAt": "2024-05-24",
+  "categories": {
+    "LSAO": false,
+    "Про учасників": false,
+    "Події": false,
+    "Про нас": false,
+    "Блог": false
+  }
+}

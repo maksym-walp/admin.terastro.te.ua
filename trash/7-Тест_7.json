@@ -1,0 +1,14 @@
+{
+  "id": 7,
+  "title": "Тест 7",
+  "content": "<p>Тест на ID після видалення</p>",
+  "author": "default author",
+  "createdAt": "2024-05-24T11:25:42.523Z",
+  "categories": {
+    "LSAO": false,
+    "Про учасників": false,
+    "Події": false,
+    "Про нас": false,
+    "Блог": false
+  }
+}
