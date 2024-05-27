@@ -13,6 +13,8 @@ const HOST = process.env.HOST || '127.1.2.89';
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, 'styles')));
+
 
 WebServer.listen(PORT, HOST, () => {
     console.log(`Server is running on port ${PORT}`);
@@ -97,6 +99,7 @@ app.get('/article/:id', async (req, res) => {
             <html>
                 <head>
                     <title>${article.title}</title>
+                    <link rel="stylesheet" type="text/css" href="/ArticleStyles.css">
                 </head>
                 <body>
                     <header class="header">
